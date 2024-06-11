@@ -1,0 +1,7 @@
+{
+  "name": "ionic-oracledb-public",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
