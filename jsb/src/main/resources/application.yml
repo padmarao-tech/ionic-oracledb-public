@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  cors:
+    allowed-origins: "*"
+    allowed-methods: "GET,POST,PUT,DELETE"
+    allowed-headers: "*"
+  datasource:
+    url: jdbc:oracle:thin:@127.0.0.1:1522/xe
+    username: c##oracledb
+    password: oot@12345
+    driver-class-name: oracle.jdbc.OracleDriver
+  main:
+    web-application-type: servlet
+

@@ -1,0 +1,49 @@
+<div style="display: flex;flex-direction: row;justify-content: end;">
+  <ion-card style="margin: 1%;">
+    <ion-card-header>
+      <ion-card-title>
+        Login
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="fg" autocomplete="off">
+        <div style="margin: 5%;display: flex;flex-direction: column;">
+          <!-- <ion-form-field> -->
+          <!-- <ion-label>Username</ion-label> -->
+          <ion-input type="text" formControlName="mobile_no_email" label="Username" labelPlacement="floating" autocomplete="off"></ion-input>
+          <!-- </ion-form-field> -->
+
+          <!-- <ion-form-field> -->
+          <!-- <ion-label>Password</ion-label> -->
+          <ion-input type="{{view?'text':'password'}}" formControlName="pwd" label="Password" labelPlacement="floating" autocomplete="off"></ion-input>
+            <ion-icon *ngIf="!view" (click)="view=true" ionSuffix color="primary"
+              style="cursor: pointer;">visibility</ion-icon>
+            <ion-icon *ngIf="view" (click)="view=false" ionSuffix color="primary"
+              style="cursor: pointer;">visibility_off</ion-icon>
+            <!-- </ion-form-field> -->
+            <ion-button class="grow" (click)="Login()" color="primary">Login</ion-button>
+            <!-- <div class="flex "> -->
+            <div class="grow"></div>
+            <div>
+              <button mat-button (click)="showChangePassword()">Forgot Password</button>
+            </div>
+            <!-- </div> -->
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  <ion-accordion-group>
+    <ion-accordion>
+      <ion-item slot="header" color="light">
+        <ion-label>Select User for Demonstration</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div style="display: flex;flex-direction: column;">
+          <h3>Head Office</h3>
+          <div style="cursor: pointer;" (click)="loginAs(1)">1) Administrator</div>
+          <div style="cursor: pointer;" (click)="loginAs(11)">1) Tester</div>
+        </div>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</div>

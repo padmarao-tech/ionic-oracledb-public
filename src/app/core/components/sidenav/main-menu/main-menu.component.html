@@ -1,0 +1,21 @@
+<ng-container *ngIf="menuArray">
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" style="margin:1%">
+    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding (click)="side.emit(true)"
+      [style.background-color]="(node.level==0)? 'rgb(52 68 76)':'rgba(0, 0, 0, 0.2)'" [routerLink]="[node.router_link]"
+      style="color:white;cursor: pointer;" [style.margin]="(node.level==0)?'2%':'0 2%'" routerLinkActive="active-link">
+      <mat-icon *ngIf="node.level==0">{{ node.icon_name }}</mat-icon>
+      <span [style.margin-left]="(node.level==0)?'10%': '15%'">{{ node.name }}</span>
+    </mat-tree-node>
+
+    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodeToggle
+      style="color:white;margin: 2% 2% 0 2%;cursor: pointer;" 
+      [style.background-color]="(treeControl.isExpanded(node))? 'rgba(0, 0, 0, 0.2)':'rgb(52 68 76)'" class="flex flex-row" 
+      [style.color]="isParentActive(node)?'rgb(36, 187, 233)':'white'">
+      <mat-icon style="margin-left: 10%;">{{ node.icon_name }}</mat-icon>
+      <span>{{ node.name }}</span>
+      <mat-icon style="margin-left: auto;">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </mat-tree-node>
+  </mat-tree>
+</ng-container>

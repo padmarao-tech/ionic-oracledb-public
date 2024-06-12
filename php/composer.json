@@ -1,0 +1,42 @@
+{
+    "require": {
+        "php": ">=7.4",
+        "ext-curl": "*",
+        "ext-date": "*",
+        "ext-intl": "*",
+        "ext-json": "*",
+        "ext-openssl": "*",
+        "ext-mbstring": "*",
+        "ext-fileinfo": "*",
+
+        "lcobucci/jwt": "^4.2",
+
+        "setasign/fpdi": "^2.3",
+        "tecnickcom/tcpdf": "^6.4",
+        "tecnickcom/tc-lib-pdf-font": "^1.9.7",
+
+        "ext-ctype": "*",
+        "ext-filter": "*",
+        "phpmailer/phpmailer": "^6.6.3",
+
+        "php-http/curl-client": "^2.2",
+        "razorpay/ifsc": "^2.0.8",
+        "laminas/laminas-diactoros": "^2.11.2",
+
+        "razorpay/razorpay": "^2.8.4",
+        "chillerlan/php-qrcode": "^4.3"
+
+    },
+    "config": {
+        "classmap-authoritative": false,
+        "optimize-autoloader": true,
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "FL\\": "src"
+        }
+    }
+}

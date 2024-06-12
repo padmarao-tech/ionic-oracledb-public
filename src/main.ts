@@ -6,6 +6,10 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { appRequestInterceptorProvider } from './app/core/interceptors/request.interceptor';
+import { appResponseInterceptorProvider } from './app/core/interceptors/response.interceptor';
 
 if (environment.production) {
   enableProdMode();
@@ -16,5 +20,12 @@ bootstrapApplication(AppComponent, {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes, withPreloading(PreloadAllModules)),
+    provideHttpClient(
+      withInterceptors([
+        appRequestInterceptorProvider,
+        appResponseInterceptorProvider
+      ])
+    ),
+    provideAnimationsAsync(),
   ],
 });

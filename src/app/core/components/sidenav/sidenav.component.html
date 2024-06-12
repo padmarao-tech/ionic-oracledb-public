@@ -1,0 +1,5 @@
+<ng-container>
+    <ng-container *ngIf="user" class="flex flex-col">
+        <app-main-menu *ngIf="menuArray as m" [menuArray]="m" (side)="side.emit(true)"></app-main-menu>
+    </ng-container>
+</ng-container>
