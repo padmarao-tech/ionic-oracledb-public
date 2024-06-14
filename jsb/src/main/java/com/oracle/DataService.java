@@ -163,8 +163,8 @@ public class DataService {
         return new ResponseEntity<>(retObj, headers, HttpStatus.OK);
 
       case "logout":
-        String ret = user.logout(requestBody, payload);
-        return new ResponseEntity<>(ret, headers, HttpStatus.OK);
+        retObj = user.logout(requestBody, payload);
+        return new ResponseEntity<>(retObj, headers, HttpStatus.OK);
 
       case "isUserEmailExist":
         boolean isEmailExist = user.isEmailExist(requestBody, payload);

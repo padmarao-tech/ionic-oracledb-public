@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EncryptionService } from '../../services/encryption.service';
 import { HttpResponse } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, PopoverController } from '@ionic/angular';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
@@ -82,13 +82,12 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private encryptionService: EncryptionService,
-    // private dialog: MatDialog,
   ) { }
 
   ngOnInit() {
-    console.log("logout");
-
-    this.ds.Logout();
+    if(this.ds.curr_user$.value){
+      this.ds.Logout();
+    }
 
     // get return url from route parameters or default to '/'
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home/dashboard';

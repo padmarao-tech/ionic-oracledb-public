@@ -7,9 +7,9 @@ export const environment = {
   // node
   // apiUrl: 'http://localhost:3001/',
   // php
-  apiUrl: 'http://localhost:3001/',
+  // apiUrl: 'http://localhost:3001/',
   // Java Springboot
-  // apiUrl: 'http://localhost:8080/',
+  apiUrl: 'http://localhost:8080/',
   // apiUrl: 'http://data.angular.oracledb.in/php/',
   loginAs(type: number) {
     let data: { mobile_no_email?: string, email?: string, pwd?: string } = { mobile_no_email: '', pwd: '' };

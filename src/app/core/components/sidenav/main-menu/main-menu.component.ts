@@ -33,9 +33,6 @@ export class MainMenuComponent implements OnChanges {
   @Input()
   menuArray: Menu[];
 
-  @Output()
-  side = new EventEmitter<boolean>();
-
   private _transformer = (node: Menu, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,

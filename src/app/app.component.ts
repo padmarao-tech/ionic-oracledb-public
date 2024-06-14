@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonApp, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonTitle, IonMenu, IonButton, IonButtons, IonMenuButton } from '@ionic/angular/standalone';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { IonApp, IonRouterOutlet, IonHeader, IonToolbar, IonContent, IonTitle, IonMenu, IonButton, IonButtons, IonMenuButton, IonRow, IonCol } from '@ionic/angular/standalone';
 import { HeaderComponent } from './core/components/header/header.component';
 import { Menu } from './shared/models';
 import { CommonModule } from '@angular/common';
@@ -9,7 +9,7 @@ import { SidenavComponent } from './core/components/sidenav/sidenav.component';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   standalone: true,
-  imports: [
+  imports: [IonCol, IonRow,
     IonTitle, IonContent, IonToolbar,
     IonHeader, IonApp, IonRouterOutlet,
     IonMenu, CommonModule, IonButton,IonButtons,
@@ -20,15 +20,14 @@ import { SidenavComponent } from './core/components/sidenav/sidenav.component';
   ],
 })
 export class AppComponent {
-  // @ViewChild('matDrawer') matDrawer : MatDrawer;
   title = 'payroll';
   menu: Menu[];
 
-  constructor(){
+  isSideMenu: boolean = false;
+  constructor(){ }
 
-  }
-  triggerSide(){
-    // this.matDrawer.toggle();
+  triggerSide(event) {
+    this.isSideMenu = event;
   }
 
   getMenu(event){

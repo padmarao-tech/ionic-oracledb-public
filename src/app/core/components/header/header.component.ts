@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { combineLatest, filter, map } from 'rxjs';
 import { Menu, User } from 'src/app/shared/models';
 import { RoleService } from '../../services/role.service';
@@ -14,16 +14,18 @@ import { IonicModule } from '@ionic/angular';
   standalone: true,
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    RouterModule
   ]
 })
 export class HeaderComponent {
   @Output()
-  side = new EventEmitter<boolean>();
+  side = new EventEmitter<boolean>(false);
 
   showMenu: boolean;
   @Output()
   menu = new EventEmitter<Menu[]>;
+  isSideMenu: boolean = false;
   header_options$ = combineLatest([
     this.router.events.pipe(filter(e => e instanceof NavigationEnd)),
     this.rs.menus$,
@@ -45,11 +47,14 @@ export class HeaderComponent {
         e.url.startsWith('/login')
       ) {
         options.show_user_menu = false;
+        this.menu.emit(null);
       } else {
         options.show_user_menu = true;
         // this.side.emit(true);
+        if (menu && menu.length > 0) {
+          this.menu.emit(menu);
+        }
       }
-
       options.subtitle = '';
 
       if (user) {
@@ -62,11 +67,24 @@ export class HeaderComponent {
     private router: Router,
     private rs: RoleService,
     private ds: DataService
-  ) { }
+  ) {
+    this.side.emit(false);
+  }
 
   showMyProfile() {
 
   }
 
   showChangePassword() { }
+
+  toggleMenu(event) {
+    this.isSideMenu = event.detail.checked;
+    this.side.emit(this.isSideMenu);
+  }
+
+  logout() {
+    this.ds.Logout();
+    this.router.navigate(['/login'])
+  }
+
 }

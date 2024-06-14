@@ -1,14 +1,28 @@
 <ion-toolbar *ngIf="(header_options$ | async) as header_options " color="primary"
   style="display: flex;flex-direction: row;align-items: center;justify-content: space-between;background: linear-gradient(to right, #00c5fb 0%, #0253cc 100%) !important;">
   <ion-buttons slot="start">
-  <ion-menu-button id="main-content" color="danger"
-    (click)="this.side.emit(true);menu.emit(header_options.menu)"></ion-menu-button>
+  <ion-menu-button *ngIf="header_options.user && !isSideMenu" id="main-content"></ion-menu-button>
   </ion-buttons>
   <ion-title>My App</ion-title>
-  <div slot="end">
+  <div slot="end" style="display: flex;align-items: center;">
     <div *ngIf="header_options.user" style="color: white !important;">{{header_options.user.email}}</div>
     <div *ngIf="header_options.show_user_menu">
-
+      <div style="padding: 4px;">
+        <ion-icon name="person" id="click-trigger" style="cursor: pointer;font-size: larger;"></ion-icon>
+      </div>
+      <ion-popover #popover trigger="click-trigger" triggerAction="click" size="auto">
+        <ng-template>
+          <ion-content class="ion-no-padding">
+            <ion-item>
+              <ion-toggle [checked]="isSideMenu" (ionChange)="toggleMenu($event)">Side</ion-toggle>
+            </ion-item>
+            <ion-item button (click)="popover.dismiss();logout()">
+              Logout
+              <ion-icon slot="end" name="person"></ion-icon>
+            </ion-item>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
     </div>
   </div>
 </ion-toolbar>

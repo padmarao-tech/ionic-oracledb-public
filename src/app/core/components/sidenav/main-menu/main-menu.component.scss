@@ -1,4 +1,19 @@
-.mat-tree-node{
-    height: 30px !important;
-    min-height: 30px !important;
+.mat-tree-node {
+  height: 30px !important;
+  min-height: 30px !important;
+}
+
+.nav-link {
+  color: white;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background-color: white !important;
+  color: blue !important;
+}
+
+.active-link {
+  background-color: white !important;
+  color: rgb(36, 187, 233) !important;
 }

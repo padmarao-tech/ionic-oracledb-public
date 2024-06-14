@@ -32,9 +32,6 @@ export class SidenavComponent implements OnInit {
   @Input()
   menuArray: Menu[];
 
-  @Output()
-  side = new EventEmitter<boolean>();
-
   treeControl = new FlatTreeControl<Menu>(
     node => node.order_num,
     node => node.is_active,

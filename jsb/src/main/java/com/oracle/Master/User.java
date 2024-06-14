@@ -323,6 +323,7 @@ public class User {
 
   //#region logout
   public String logout(@RequestBody Map<String, Object> filter, Map<String, Object> payload) throws SQLException {
+    Map<String, Object> retObj = new HashMap<>();
     db.Connect();
     Long id = payload.containsKey("id") ? Long.parseLong(payload.get("id").toString()) : null;
     String sql = "UPDATE mas_users SET last_login = NULL, session_token = NULL WHERE id = ? ";
@@ -330,7 +331,8 @@ public class User {
     List<Map<String, Object>> rows = db.Query(sql, new Object[] { id },returnValues);
     System.out.println(rows);
     db.DBClose();
-    return rows.size() > 0 ? "User logout successful." : "Error occurred during logout.";
+    retObj.put("message", rows.size() > 0 ? "User logout successful." : "Error occurred during logout.");
+    return retObj;
   }
   //#endregion logout
 

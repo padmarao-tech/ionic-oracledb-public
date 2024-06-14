@@ -10,10 +10,17 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { appRequestInterceptorProvider } from './app/core/interceptors/request.interceptor';
 import { appResponseInterceptorProvider } from './app/core/interceptors/response.interceptor';
+import { addIcons } from 'ionicons';
+import { heart,person } from 'ionicons/icons';
 
 if (environment.production) {
   enableProdMode();
 }
+
+addIcons({
+  "heart": heart,
+  "person": person
+});
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -27,5 +34,6 @@ bootstrapApplication(AppComponent, {
       ])
     ),
     provideAnimationsAsync(),
+
   ],
 });
