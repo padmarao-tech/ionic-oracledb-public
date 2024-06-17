@@ -1,7 +1,7 @@
 <ion-toolbar *ngIf="(header_options$ | async) as header_options " color="primary"
   style="display: flex;flex-direction: row;align-items: center;justify-content: space-between;background: linear-gradient(to right, #00c5fb 0%, #0253cc 100%) !important;">
   <ion-buttons slot="start">
-  <ion-menu-button *ngIf="header_options.user && !isSideMenu" id="main-content"></ion-menu-button>
+  <ion-menu-button *ngIf="header_options.user && (!isSideMenu || isMobileScreen)" id="main-content"></ion-menu-button>
   </ion-buttons>
   <ion-title>My App</ion-title>
   <div slot="end" style="display: flex;align-items: center;">
@@ -13,7 +13,7 @@
       <ion-popover #popover trigger="click-trigger" triggerAction="click" size="auto">
         <ng-template>
           <ion-content class="ion-no-padding">
-            <ion-item>
+            <ion-item *ngIf="!isMobileScreen">
               <ion-toggle [checked]="isSideMenu" (ionChange)="toggleMenu($event)">Side</ion-toggle>
             </ion-item>
             <ion-item button (click)="popover.dismiss();logout()">

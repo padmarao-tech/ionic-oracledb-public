@@ -71,7 +71,16 @@ $app-theme: mat.define-theme((
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
-
+/* #region Materials */
+@import url("./assets/materials/check-box.scss");
+@import url("./assets/materials/form-field.scss");
+@import url("./assets/materials/input.scss");
+@import url("./assets/materials/menu.scss");
+@import url("./assets/materials/paginator.scss");
+@import url("./assets/materials/side-nav.scss");
+@import url("./assets/materials/table.scss");
+@import url("./assets/materials/tree.scss");
+/* #endregion Materials */
 table,
 th,
 td {
@@ -145,3 +154,8 @@ button {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+ion-content::part(scroll) {
+  --ion-scrollbar-width: thin;
+  scrollbar-width: thin !important;
+}

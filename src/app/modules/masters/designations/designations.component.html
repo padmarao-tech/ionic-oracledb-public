@@ -1,0 +1,69 @@
+<div style="margin: 1%;display: flex;flex-direction: column;row-gap: 5px;">
+    <div style="text-align: center;">
+        <h1>Designations</h1>
+    </div>
+    <div style="text-align: right;">
+        <button mat-raised-button (click)="add()" color="primary">Add Designation</button>
+    </div>
+    <div style="display: flex;flex-direction: row;justify-content: space-between;align-items: center;">
+        <div>
+            <section class="example-section">
+                <mat-checkbox class="example-margin" [formControl]="filter_include_inactive">
+                    Include Inactive Designations
+                </mat-checkbox>
+            </section>
+        </div>
+        <div></div>
+        <div>
+            <mat-form-field>
+                <mat-label>Code / Name</mat-label>
+                <input type="text" matInput [formControl]="filter_search_text">
+            </mat-form-field>
+        </div>
+    </div>
+    <mat-card style="margin-left: auto;margin-right: auto;">
+        <table style="width: fit-content;">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <ng-container *ngIf="(designations$ | async) as designations; else tmplLoading">
+                <tbody *ngIf="designations.length > 0">
+                    <tr *ngFor="let a of designations;let i = index">
+                        <td style="text-align: center;">{{ i + 1 }}</td>
+                        <td style="text-align: center;">{{ a.code }}</td>
+                        <td style="text-align: center;">{{ a.name }}</td>
+                        <td style="text-align: center;">
+                            <button mat-button (click)="toggleStatus(a)" [style.color]="a.is_active? 'green': 'red'">
+                                {{ a.is_active? 'Active': 'Inactive' }}
+                            </button>
+                        </td>
+                        <td>
+                            <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                                <mat-icon (click)="add(a)" style="cursor: pointer;" color="primary">edit</mat-icon>
+                                <mat-icon *ngIf="a.is_del" (click)="delete(a)" style="cursor: pointer;" color="warn">delete</mat-icon>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </ng-container>
+        </table>
+        <ng-template #tmplNoData>
+            <div style="text-align: center;color: red;">No data found</div>
+        </ng-template>
+    </mat-card>
+    <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+    <ng-template #tmplLoading>
+        <div style="display: flex;flex-direction: column;row-gap: 5px;" [ariaColSpan]="5">
+            <div style="margin-left: auto;margin-right: auto;">
+                <mat-spinner diameter="40" color="primary"></mat-spinner>
+            </div>
+            <div style="color: red;">Please wait while loading...</div>
+        </div>
+    </ng-template>
+</div>

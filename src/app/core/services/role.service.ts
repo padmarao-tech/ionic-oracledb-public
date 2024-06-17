@@ -36,6 +36,8 @@ export class RoleService {
         if (m.related_router_links && m.related_router_links.length > 0)
           urls.push(...m.related_router_links);
       });
+      console.log(urls);
+
       return urls;
     })
   );

@@ -1,0 +1,57 @@
+
+/*#region MatFormField */
+.mat-mdc-form-field {
+  width: 230px !important;
+}
+.mdc-text-field {
+  padding: 0px !important;
+}
+.mat-mdc-form-field-infix {
+  min-height: auto !important;
+  padding-bottom: 0px !important;
+}
+
+.mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined)
+  .mat-mdc-form-field-infix {
+  padding-top: 18px;
+  padding-bottom: 0px;
+}
+
+.mat-mdc-form-field-infix {
+  width: auto;
+  min-height: 26px;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent !important;
+}
+.mdc-text-field--filled {
+  height: auto !important;
+}
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+.label-text-wrapper {
+  margin-bottom: 5px !important;
+}
+
+.mat-mdc-form-field {
+  /* line-height: 10px !important; */
+  letter-spacing: 0px;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-flex .mat-mdc-floating-label {
+  top: 30px;
+}
+.mdc-floating-label--float-above {
+  font-size: 16px !important;
+}
+.mdc-text-field__input {
+  height: 26px !important;
+}
+.mat-mdc-form-field-hint-wrapper,
+.mat-mdc-form-field-error-wrapper {
+  padding: 0px !important;
+}
+/*#endregion MatFormField */

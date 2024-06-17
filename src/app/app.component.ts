@@ -8,11 +8,12 @@ import { SidenavComponent } from './core/components/sidenav/sidenav.component';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
+  styleUrl: 'app.component.scss',
   standalone: true,
   imports: [IonCol, IonRow,
     IonTitle, IonContent, IonToolbar,
     IonHeader, IonApp, IonRouterOutlet,
-    IonMenu, CommonModule, IonButton,IonButtons,
+    IonMenu, CommonModule, IonButton, IonButtons,
     IonMenuButton,
     // components
     HeaderComponent,
@@ -24,13 +25,13 @@ export class AppComponent {
   menu: Menu[];
 
   isSideMenu: boolean = false;
-  constructor(){ }
+  constructor() { }
 
   triggerSide(event) {
     this.isSideMenu = event;
   }
 
-  getMenu(event){
+  getMenu(event) {
     this.menu = event;
     console.log(this.menu);
 

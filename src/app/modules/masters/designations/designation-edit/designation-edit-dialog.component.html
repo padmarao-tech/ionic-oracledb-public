@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Designation</h2>
+<mat-dialog-content>
+    <div style="display: flex;flex-direction: column;row-gap: 10px;">
+        <form [formGroup]="fg" style="display: flex;flex-direction: row;column-gap: 10px;flex-wrap: wrap;">
+            <mat-form-field>
+                <mat-label>Code</mat-label>
+                <input formControlName="code" type="text" matInput oninput="this.value = this.value.toUpperCase()">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input formControlName="name" type="text" matInput>
+            </mat-form-field>
+        </form>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button (click)="save()" [disabled]="fg.invalid" mat-raised-button color="primary">Save</button>
+    <button (click)="cancel()" mat-raised-button color="warn">Cancel</button>
+</mat-dialog-actions>

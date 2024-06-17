@@ -3,7 +3,7 @@
     <app-header (menu)="getMenu($event)" (side)="triggerSide($event)"></app-header>
   </ion-header>
 
-  <ion-content class="ion-no-padding" >
+  <ion-content class="ion-no-padding">
     <ion-menu *ngIf="!isSideMenu" side="start" contentId="main-content">
       <ion-content class="ion-no-padding">
         <div *ngIf="menu && menu.length > 0" class="example-headers-align" multi
@@ -15,9 +15,9 @@
     <!-- Side Menu for 'overlay' type -->
 
     <!-- Main Content Area -->
-    <ion-row style="height: 100% !important;" >
+    <ion-row style="height: 100% !important;">
       <!-- Side Menu for 'push' type -->
-      <ion-col *ngIf="isSideMenu" size="4" class="ion-no-padding" style="background-color: #0054e9;">
+      <ion-col *ngIf="isSideMenu" size="5" sizeXs="5" sizeSm="3.5" sizeMd="3.5" sizeLg="2.5" sizeXl="2.5" class="ion-no-padding" style="background-color: #0054e9;">
         <div *ngIf="menu && menu.length > 0" class="example-headers-align"
           style="display: flex; flex-direction: column;">
           <app-sidenav [menuArray]="menu"></app-sidenav>

@@ -1,0 +1,25 @@
+
+/*#region Table */
+
+table,
+th,
+td {
+  border: 1px solid #737373;
+}
+
+table {
+  width: 100%;
+  overflow-x: scroll;
+  min-width: 400px;
+  border-collapse: collapse;
+}
+
+thead {
+  background: ghostwhite;
+  line-height: 30px;
+}
+
+td {
+  padding: 0px 4px;
+}
+/*#endregion Table */

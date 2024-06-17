@@ -1,30 +1,7 @@
-.md .menu-content-push {
-  box-shadow: none !important;
-}
-
 ion-menu {
-  z-index: 1000;
-
-  /* Ensure the menu is on top */
   ion-content::part(background) {
-    --background: blue;
-    background: blue !important;
+    --background: #0054e9;
+    background: #0054e9 !important;
   }
-  ion-content #background-content::part(background) {
-    --background: blue;
-    background: blue !important;
-  }
-  ion-content::part(scroll) {
-    --ion-scrollbar-width: thin;
-    scrollbar-width: thin !important;
-    background: blue !important;
-  }
-}
 
-ion-menu ion-content::part(background) {
-  --background: blue;
-    background: blue !important;
-}
-ion-menu ion-content {
-  --background: blue; /* Replace with your desired color */
 }

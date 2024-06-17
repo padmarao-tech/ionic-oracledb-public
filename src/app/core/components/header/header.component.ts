@@ -6,6 +6,7 @@ import { RoleService } from '../../services/role.service';
 import { DataService } from '../../services/data.service';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-header',
@@ -40,6 +41,7 @@ export class HeaderComponent {
         user: user,
         menu: menu
       };
+      console.log(e.url);
 
       if (
         e.url === "/" ||
@@ -62,13 +64,23 @@ export class HeaderComponent {
       return options;
     })
   );
+  isMobileScreen: boolean;
 
   constructor(
     private router: Router,
     private rs: RoleService,
-    private ds: DataService
+    private ds: DataService,
+    private breakpointObserver: BreakpointObserver
   ) {
     this.side.emit(false);
+    this.breakpointObserver.observe([Breakpoints.Handset])
+      .subscribe(result => {
+        this.isMobileScreen = result.matches;
+        if(this.isMobileScreen) {
+          this.isSideMenu = false;
+          this.side.emit(false);
+        }
+      });
   }
 
   showMyProfile() {
