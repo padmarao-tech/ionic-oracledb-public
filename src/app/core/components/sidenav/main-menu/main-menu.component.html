@@ -1,16 +1,15 @@
 <ng-container *ngIf="menuArray && menuArray.length">
   <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
     <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding
-      [style.background-color]="(node.level===0)? '#0054e9':'blue'" [routerLink]="[node.router_link]"
-      class="nav-link" routerLinkActive="active-link">
+      [style.background-color]="(node.level===0)? '#0054e9':'blue'" [routerLink]="[node.router_link]" class="nav-link"
+      routerLinkActive="active-link">
       <mat-icon *ngIf="node.level===0">{{ node.icon_name }}</mat-icon>
       <span [style.margin-left]="(node.level===0)?'10%': '15%'">{{ node?.name }}</span>
     </mat-tree-node>
 
     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodeToggle
-      [style.background-color]="(treeControl.isExpanded(node))? 'blue':'#0054e9'"
-      class="flex flex-row nav-link"
-      [style.color]="isParentActive(node)?'rgb(36, 187, 233)':'white'">
+      [style.background-color]="(treeControl.isExpanded(node))? 'blue':'#0054e9'" class="flex flex-row nav-link"
+      [style.color]="isParentActive(node)?'black':'white'">
       <mat-icon style="margin-left: 10%;">{{ node.icon_name }}</mat-icon>
       <span>{{ node.name }}</span>
       <mat-icon style="margin-left: auto;">

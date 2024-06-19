@@ -17,7 +17,7 @@
     <!-- Main Content Area -->
     <ion-row style="height: 100% !important;">
       <!-- Side Menu for 'push' type -->
-      <ion-col *ngIf="isSideMenu" size="5" sizeXs="5" sizeSm="3.5" sizeMd="3.5" sizeLg="2.5" sizeXl="2.5" class="ion-no-padding" style="background-color: #0054e9;">
+      <ion-col *ngIf="isSideMenu" class="side-nav" size="2.5" class="ion-no-padding" style="background-color: #0054e9;">
         <div *ngIf="menu && menu.length > 0" class="example-headers-align"
           style="display: flex; flex-direction: column;">
           <app-sidenav [menuArray]="menu"></app-sidenav>

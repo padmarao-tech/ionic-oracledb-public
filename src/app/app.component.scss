@@ -5,3 +5,24 @@ ion-menu {
   }
 
 }
+
+// .side-nav {
+//   width: 40px;
+//   // height: 100%;
+//   // background-color: #0054e9;
+//   // padding: 8px;
+//   --ion-grid-column-widths: 8%;
+//   --ion-grid-column-widths-sm: 6%;
+//   --ion-grid-column-widths-md: 5%;
+//   --ion-grid-column-widths-lg: 4%;
+//   --ion-grid-column-widths-xl: 3%;
+// }
+
+.side-nav:hover {
+  width: 250px;
+  --ion-grid-column-widths: 8%;
+  --ion-grid-column-widths-sm: 6%;
+  --ion-grid-column-widths-md: 5%;
+  --ion-grid-column-widths-lg: 4%;
+  --ion-grid-column-widths-xl: 3%;
+}

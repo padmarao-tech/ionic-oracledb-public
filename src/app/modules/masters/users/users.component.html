@@ -23,7 +23,7 @@
           </mat-form-field>
         </div>
       </div>
-      <mat-card style="margin-left: auto;margin-right: auto;">
+      <div style="margin-left: auto;margin-right: auto;">
         <table style="width: fit-content;">
           <thead>
             <tr>
@@ -60,7 +60,7 @@
         <ng-template #tmplNoData>
           <div style="text-align: center;color: red;">No data found</div>
         </ng-template>
-      </mat-card>
+      </div>
       <mat-paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
       <ng-template #tmplLoading>
         <div style="display: flex;flex-direction: column;row-gap: 5px;">
